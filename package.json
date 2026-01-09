@@ -1,0 +1,37 @@
+{
+  "name": "@cityssm/ms-teams-workflow-webhook",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Sends a formatted message to a Microsoft Teams team workflow webhook",
+  "exports": {
+    ".": "./index.js"
+  },
+  "scripts": {
+    "coverage": "c8 --reporter=lcov --reporter=text --reporter=text-summary node --test",
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cityssm/node-ms-teams-workflow-webhook.git"
+  },
+  "keywords": [
+    "ms-teams",
+    "microsoft-teams",
+    "webhook"
+  ],
+  "author": "The Corporation of the City of Sault Ste. Marie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cityssm/node-ms-teams-workflow-webhook/issues"
+  },
+  "homepage": "https://github.com/cityssm/node-ms-teams-workflow-webhook#readme",
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "eslint-config-cityssm": "^36.1.0",
+    "prettier-config-cityssm": "^1.0.0"
+  },
+  "dependencies": {
+    "adaptivecards": "^3.0.5",
+    "debug": "^4.4.3"
+  }
+}
