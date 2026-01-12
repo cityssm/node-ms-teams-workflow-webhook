@@ -2,7 +2,8 @@ name: Coverage Testing
 
 on: [workflow_dispatch, push, pull_request]
 
-permissions: read-all
+permissions:
+  contents: read
 
 jobs:
   Ubuntu:
