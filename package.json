@@ -1,6 +1,6 @@
 {
   "name": "@cityssm/ms-teams-workflow-webhook",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Sends a formatted message (i.e. Adaptive Card) to a Microsoft Teams workflow webhook",
   "keywords": [
     "ms-teams",
