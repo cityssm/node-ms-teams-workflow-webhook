@@ -120,6 +120,7 @@ export interface FactSetContainer extends AdaptiveElement {
 
 export interface ActionSetContainer extends AdaptiveElement {
   type: 'ActionSet'
+  
   actions: AdaptiveCardAction[]
 }
 
