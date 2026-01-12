@@ -21,22 +21,28 @@ npm install @cityssm/ms-teams-workflow-webhook
 
 To send a message to a channel in Teams, you need to create a webhook URL.
 
-[**The basics of creating a webhook URL are described**](./docs/README.md).
+[**The basics of creating a webhook URL are described.**](./docs/README.md)
 This package is built to work with
 Microsoft's "Send webhook alerts to a channel" workflow template.
 
 Note that not all
 [Adaptive Card elements](https://adaptivecards.io/explorer/AdaptiveCard.html)
-have Typescript types recognized in this package (yet)
-as they are added on an as-need basis, however, they may still work.
+have Typescript types recognized in this package (yet).
+Elements and actions are added on an as-need basis, however, they may still work.
 
 ```javascript
 import sendMessageToTeamsWebhook from '@cityssm/ms-teams-workflow-webhook'
 import { recordToFactSet } from '@cityssm/ms-teams-workflow-webhook/helpers'
 
 const webhookURL = 'https://x.api.powerplatform.com/powerautomate/...'
+```
 
-// Simple message with a simple link
+## Simple Message
+
+To display simple text content, pass a string as a Card Element.
+To display a simple link in the footer, pass the URL as the action.
+
+```javascript
 await sendMessageToTeamsWebhook(
   webhookURL,
   'Test message',
@@ -46,13 +52,12 @@ await sendMessageToTeamsWebhook(
 
 ![Teams Output](./docs/example-simple.png)
 
----
+## Single Element, Single Action
+
+Need to be a bit more complex?
+Pass a single Card Element object, and optionally a single Action object.
 
 ```javascript
-/*
- * Single element, single action
- */
-
 await sendMessageToTeamsWebhook(
   webhookURL,
   {
@@ -70,10 +75,12 @@ await sendMessageToTeamsWebhook(
 
 ![Teams Output](./docs/example-single.png)
 
----
+## Complex Example
+
+The elements and actions can also be arrays!
 
 ```javascript
-// Multiple elements, multiple actions
+
 await sendMessageToTeamsWebhook(
   webhookURL,
   [

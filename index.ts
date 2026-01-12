@@ -25,8 +25,8 @@ export default async function sendMessageToTeamsWebhook(
    * Build Adaptive Card body
    */
 
-  // eslint-disable-next-line @typescript-eslint/init-declarations
-  let body: AdaptiveCardElement[]
+  // eslint-disable-next-line no-useless-assignment
+  let body: AdaptiveCardElement[] = []
 
   if (typeof messageBody === 'string') {
     body = [
