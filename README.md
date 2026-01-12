@@ -42,8 +42,17 @@ await sendMessageToTeamsWebhook(
   'Test message',
   'https://github.com/cityssm/node-ms-teams-workflow-webhook'
 )
+```
 
-// Single element, single action
+![Teams Output](./docs/example-simple.png)
+
+---
+
+```javascript
+/*
+ * Single element, single action
+ */
+
 await sendMessageToTeamsWebhook(
   webhookURL,
   {
@@ -57,7 +66,13 @@ await sendMessageToTeamsWebhook(
     url: 'https://github.com/cityssm/node-ms-teams-workflow-webhook'
   }
 )
+```
 
+![Teams Output](./docs/example-single.png)
+
+---
+
+```javascript
 // Multiple elements, multiple actions
 await sendMessageToTeamsWebhook(
   webhookURL,
@@ -110,6 +125,8 @@ await sendMessageToTeamsWebhook(
   ]
 )
 ```
+
+![Teams Output](./docs/example-complex.png)
 
 ## Related Package - ms-teams-webhook
 

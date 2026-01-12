@@ -11,14 +11,14 @@ import { webhookURL } from './config.js'
 Debug.enable(DEBUG_ENABLE_NAMESPACES)
 
 await describe('ms-teams-workflow-webhook', async () => {
-  await it.skip('Should post a string message to the Teams webhook', async () => {
+  await it('Should post a string message to the Teams webhook', async () => {
     await sendMessageToTeamsWebhook(
       webhookURL,
       'This is a test message from the ms-teams-workflow-webhook package.'
     )
   })
 
-  await it('Should post a string message with an URL to the Teams webhook', async () => {
+  await it('Should post a string message with a URL to the Teams webhook', async () => {
     await sendMessageToTeamsWebhook(
       webhookURL,
       'Test message',
