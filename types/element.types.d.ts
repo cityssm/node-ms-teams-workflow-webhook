@@ -80,6 +80,11 @@ export interface ColumnSetContainer extends AdaptiveElement {
     /** Controls the horizontal alignment of the `ColumnSet`. When not specified, the value of `horizontalAlignment` is inherited from the parent container. If no parent container has `horizontalAlignment` set, it defaults to Left. */
     horizontalAlignment?: AdaptiveCardHorizontalAlignment;
 }
+/**
+ * Column Container
+ * - A single column within a `ColumnSet`.
+ * @see https://adaptivecards.io/explorer/Column.html
+ */
 export interface ColumnContainer extends Pick<AdaptiveElement, 'id' | 'isVisible'> {
     type: 'Column';
     /** The card elements to render inside the `Column`. */

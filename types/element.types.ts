@@ -135,6 +135,11 @@ export interface ColumnSetContainer extends AdaptiveElement {
   horizontalAlignment?: AdaptiveCardHorizontalAlignment
 }
 
+/**
+ * Column Container
+ * - A single column within a `ColumnSet`.
+ * @see https://adaptivecards.io/explorer/Column.html
+ */
 export interface ColumnContainer extends Pick<
   AdaptiveElement,
   'id' | 'isVisible'
