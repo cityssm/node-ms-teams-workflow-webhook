@@ -2,8 +2,7 @@ import Debug from 'debug'
 
 import { DEBUG_NAMESPACE } from './debug.config.js'
 import type {
-  AdaptiveCardElement,
-  FactSetContainer
+  AdaptiveCardElement
 } from './types/element.types.js'
 
 const debug = Debug(`${DEBUG_NAMESPACE}:index`)
@@ -47,6 +46,7 @@ export default async function sendMessageToTeamsWebhook(
   if (card.actions?.openUrl !== undefined) {
     json.attachments[0].content.actions.push({
       type: 'Action.OpenUrl',
+
       title: card.actions.openUrl.title,
       url: card.actions.openUrl.url
     })
@@ -69,23 +69,7 @@ export default async function sendMessageToTeamsWebhook(
   })
 }
 
-/**
- * Convert a record to a FactSet container
- * @param record - Record to convert
- * @returns FactSet container
- */
-export function recordToFactSet(
-  record: Record<string, unknown>
-): FactSetContainer {
-  const factSet: FactSetContainer = {
-    type: 'FactSet',
+export * as helpers from './helpers.js'
 
-    facts: []
-  }
-
-  for (const [key, value] of Object.entries(record)) {
-    factSet.facts.push({ title: key, value: String(value) })
-  }
-
-  return factSet
-}
+export type * as elementTypes from './types/element.types.js'
+export type * as valueTypes from './types/value.types.js'

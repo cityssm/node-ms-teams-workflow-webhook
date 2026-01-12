@@ -1,21 +1,7 @@
 {
   "name": "@cityssm/ms-teams-workflow-webhook",
-  "type": "module",
   "version": "0.1.0",
   "description": "Sends a formatted message (i.e. Adaptive Card) to a Microsoft Teams workflow webhook",
-  "exports": {
-    ".": "./index.js",
-    "./elements": "./types/element.types.js",
-    "./values": "./types/value.types.js"
-  },
-  "scripts": {
-    "coverage": "c8 --reporter=lcov --reporter=text --reporter=text-summary node --test",
-    "test": "node --test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cityssm/node-ms-teams-workflow-webhook.git"
-  },
   "keywords": [
     "ms-teams",
     "microsoft-teams",
@@ -24,18 +10,34 @@
     "adaptive-cards",
     "workflow"
   ],
-  "author": "The Corporation of the City of Sault Ste. Marie",
-  "license": "MIT",
+  "homepage": "https://github.com/cityssm/node-ms-teams-workflow-webhook#readme",
   "bugs": {
     "url": "https://github.com/cityssm/node-ms-teams-workflow-webhook/issues"
   },
-  "homepage": "https://github.com/cityssm/node-ms-teams-workflow-webhook#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cityssm/node-ms-teams-workflow-webhook.git"
+  },
+  "license": "MIT",
+  "author": "The Corporation of the City of Sault Ste. Marie",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./debug": "./debug.config.js",
+    "./elements": "./types/element.types.js",
+    "./helpers": "./helpers.js",
+    "./values": "./types/value.types.js"
+  },
+  "scripts": {
+    "coverage": "c8 --reporter=lcov --reporter=text --reporter=text-summary node --test",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "debug": "^4.4.3"
+  },
   "devDependencies": {
     "@types/node": "^25.0.6",
     "eslint-config-cityssm": "^36.1.0",
     "prettier-config-cityssm": "^1.0.0"
-  },
-  "dependencies": {
-    "debug": "^4.4.3"
   }
 }

@@ -1,4 +1,4 @@
-import type { AdaptiveCardElement, FactSetContainer } from './types/element.types.js';
+import type { AdaptiveCardElement } from './types/element.types.js';
 export default function sendMessageToTeamsWebhook(webhookUrl: string, card: {
     cardElements: AdaptiveCardElement[];
     actions?: {
@@ -8,9 +8,6 @@ export default function sendMessageToTeamsWebhook(webhookUrl: string, card: {
         };
     };
 }): Promise<void>;
-/**
- * Convert a record to a FactSet container
- * @param record - Record to convert
- * @returns FactSet container
- */
-export declare function recordToFactSet(record: Record<string, unknown>): FactSetContainer;
+export * as helpers from './helpers.js';
+export type * as elementTypes from './types/element.types.js';
+export type * as valueTypes from './types/value.types.js';

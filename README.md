@@ -4,7 +4,7 @@
 [![codecov](https://codecov.io/gh/cityssm/node-ms-teams-workflow-webhook/graph/badge.svg?token=SIY50A4ZYB)](https://codecov.io/gh/cityssm/node-ms-teams-workflow-webhook)
 
 Sends a formatted message (i.e. [Adaptive Card](https://adaptivecards.io/))
-to a Microsoft Teams workflow webhook.
+to a [Microsoft Teams](https://www.microsoft.com/en-ca/microsoft-teams/) workflow webhook.
 
 ## Installation
 
@@ -19,7 +19,8 @@ npm install @cityssm/ms-teams-workflow-webhook
 To send a message to a channel in Teams, you need to create a webhook URL.
 
 [**The basics of creating a webhook URL are described**](./docs/README.md).
-More advanced scenarios can be set up with the help of your Teams administrator.
+This package is built to work with
+Microsoft's "Send webhook alerts to a channel" workflow template.
 
 Note that not all
 [Adaptive Card elements](https://adaptivecards.io/explorer/AdaptiveCard.html)
@@ -47,9 +48,9 @@ await sendMessageToTeamsWebhook(webhookUrl, {
 })
 ```
 
-## Related Packages
+## Related Package - ms-teams-webhook
 
-[**ms-teams-webhook**](https://www.npmjs.com/package/ms-teams-webhook)<br />
-v2.2.2 uses message cards and webhooks no longer available in Teams.
+[ms-teams-webhook](https://www.npmjs.com/package/ms-teams-webhook) v2.2.2
+uses message cards and webhooks no longer available in Teams.
 Note that if the **ms-teams-webhook** project is updated to support Adaptive Cards
 and the new webhook URLs, it is a far more mature package than this one!

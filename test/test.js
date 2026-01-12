@@ -1,6 +1,7 @@
 import { describe, it } from 'node:test';
 import Debug from 'debug';
 import { DEBUG_ENABLE_NAMESPACES } from '../debug.config.js';
+import { recordToFactSet } from '../helpers.js';
 import sendMessageToTeamsWebhook from '../index.js';
 import { webhookURL } from './config.js';
 Debug.enable(DEBUG_ENABLE_NAMESPACES);
@@ -18,15 +19,9 @@ await describe('ms-teams-workflow-webhook', async () => {
                     type: 'Image',
                     url: 'https://adaptivecards.io/content/cats/1.png'
                 },
-                {
-                    type: 'FactSet',
-                    facts: [
-                        {
-                            title: 'Sent',
-                            value: new Date().toISOString()
-                        }
-                    ]
-                }
+                recordToFactSet({
+                    Sent: new Date().toISOString()
+                })
             ],
             actions: {
                 openUrl: {
