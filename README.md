@@ -2,6 +2,7 @@
 
 [![DeepSource](https://app.deepsource.com/gh/cityssm/node-ms-teams-workflow-webhook.svg/?label=active+issues&show_trend=true&token=atKnIeSPEh7FcDMzbQ5HiJXg)](https://app.deepsource.com/gh/cityssm/node-ms-teams-workflow-webhook/)
 [![codecov](https://codecov.io/gh/cityssm/node-ms-teams-workflow-webhook/graph/badge.svg?token=SIY50A4ZYB)](https://codecov.io/gh/cityssm/node-ms-teams-workflow-webhook)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cityssm_node-ms-teams-workflow-webhook&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cityssm_node-ms-teams-workflow-webhook)
 
 Sends a formatted message (i.e. [Adaptive Card](https://adaptivecards.io/))
 to a [Microsoft Teams](https://www.microsoft.com/en-ca/microsoft-teams/) workflow webhook.
