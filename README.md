@@ -1,5 +1,7 @@
 # MS Teams Workflow Webhook for Node
 
+[![DeepSource](https://app.deepsource.com/gh/cityssm/node-ms-teams-workflow-webhook.svg/?label=active+issues&show_trend=true&token=atKnIeSPEh7FcDMzbQ5HiJXg)](https://app.deepsource.com/gh/cityssm/node-ms-teams-workflow-webhook/)
+
 Sends a formatted message (i.e. [Adaptive Card](https://adaptivecards.io/))
 to a Microsoft Teams workflow webhook.
 
