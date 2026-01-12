@@ -6,6 +6,9 @@
 Sends a formatted message (i.e. [Adaptive Card](https://adaptivecards.io/))
 to a [Microsoft Teams](https://www.microsoft.com/en-ca/microsoft-teams/) workflow webhook.
 
+**Always be mindful of the data you send by webhook.**
+Consider keeping the sensitive details behind a link you authenticate!
+
 ## Installation
 
 ```sh
@@ -29,23 +32,83 @@ as they are added on an as-need basis, however, they may still work.
 
 ```javascript
 import sendMessageToTeamsWebhook from '@cityssm/ms-teams-workflow-webhook'
+import { recordToFactSet } from '@cityssm/ms-teams-workflow-webhook/helpers'
 
-const webhookUrl = 'https://x.api.powerplatform.com/powerautomate/...'
+const webhookURL = 'https://x.api.powerplatform.com/powerautomate/...'
 
-await sendMessageToTeamsWebhook(webhookUrl, {
-  cardElements: [
+// Simple message with a simple link
+await sendMessageToTeamsWebhook(
+  webhookURL,
+  'Test message',
+  'https://github.com/cityssm/node-ms-teams-workflow-webhook'
+)
+
+// Single element, single action
+await sendMessageToTeamsWebhook(
+  webhookURL,
+  {
+    type: 'TextBlock',
+    text: 'Send with the @cityssm/ms-teams-workflow-webhook-package',
+    weight: 'bolder'
+  },
+  {
+    type: 'Action.OpenUrl',
+    title: 'Visit on GitHub',
+    url: 'https://github.com/cityssm/node-ms-teams-workflow-webhook'
+  }
+)
+
+// Multiple elements, multiple actions
+await sendMessageToTeamsWebhook(
+  webhookURL,
+  [
     {
       type: 'TextBlock',
-      text: 'Test message'
-    }
+      text: 'Built with the @cityssm/ms-teams-workflow-webhook package.',
+      weight: 'bolder',
+      size: 'large',
+      wrap: true
+    },
+    {
+      type: 'ColumnSet',
+      columns: [
+        {
+          type: 'Column',
+          items: [
+            {
+              type: 'Image',
+              url: 'https://adaptivecards.io/content/cats/1.png'
+            }
+          ]
+        },
+        {
+          type: 'Column',
+          items: [
+            {
+              type: 'Image',
+              url: 'https://adaptivecards.io/content/cats/1.png'
+            }
+          ]
+        }
+      ]
+    },
+    recordToFactSet({
+      Sent: new Date().toISOString()
+    })
   ],
-  actions: {
-    openUrl: {
+  [
+    {
+      type: 'Action.OpenUrl',
       title: 'Visit on GitHub',
       url: 'https://github.com/cityssm/node-ms-teams-workflow-webhook'
+    },
+    {
+      type: 'Action.OpenUrl',
+      title: 'Visit on NPM',
+      url: 'https://www.npmjs.com/package/@cityssm/ms-teams-workflow-webhook'
     }
-  }
-})
+  ]
+)
 ```
 
 ## Related Package - ms-teams-webhook

@@ -1,24 +1,73 @@
 import Debug from 'debug'
 
 import { DEBUG_NAMESPACE } from './debug.config.js'
-import type { AdaptiveCardAction } from './types/action.types.js'
-import type { AdaptiveCardElement } from './types/element.types.js'
+import type {
+  AdaptiveCardAction,
+  AdaptiveCardElement
+} from './types/element.types.js'
 
 const debug = Debug(`${DEBUG_NAMESPACE}:index`)
 
 const adaptiveCardVersion = '1.5'
 
 /**
- * Send a message to a Microsoft Teams workflow webhook
+ * Send a message to a Microsoft Teams workflow webhook.
  * @param webhookUrl - Webhook URL
- * @param messageBody - Adaptive Card elements for the message body
- * @param actions - Adaptive Card actions for the message
+ * @param messageBody - One or more Adaptive Card elements for the message body. Can also be a simple string.
+ * @param messageActions - Optional. One or more Adaptive Card actions for the message. Can also be a URL string.
  */
 export default async function sendMessageToTeamsWebhook(
   webhookUrl: string,
-  messageBody: AdaptiveCardElement | AdaptiveCardElement[],
-  actions: AdaptiveCardAction | AdaptiveCardAction[] = []
+  messageBody: AdaptiveCardElement | AdaptiveCardElement[] | string,
+  messageActions: AdaptiveCardAction | AdaptiveCardAction[] | string = []
 ): Promise<void> {
+  /*
+   * Build Adaptive Card body
+   */
+
+  // eslint-disable-next-line @typescript-eslint/init-declarations
+  let body: AdaptiveCardElement[]
+
+  if (typeof messageBody === 'string') {
+    body = [
+      {
+        type: 'TextBlock',
+
+        text: messageBody,
+        wrap: true
+      }
+    ]
+  } else if (Array.isArray(messageBody)) {
+    body = messageBody
+  } else {
+    body = [messageBody]
+  }
+
+  /*
+   * Build actions
+   */
+
+  let actions: AdaptiveCardAction[] = []
+
+  if (typeof messageActions === 'string') {
+    actions = [
+      {
+        type: 'Action.OpenUrl',
+
+        title: 'Open Link',
+        url: messageActions
+      }
+    ]
+  } else if (Array.isArray(messageActions)) {
+    actions = messageActions
+  } else if (Object.keys(messageActions).length > 0) {
+    actions = [messageActions]
+  }
+
+  /*
+   * Build JSON payload
+   */
+
   const json = {
     type: 'message',
 
@@ -35,9 +84,9 @@ export default async function sendMessageToTeamsWebhook(
           type: 'AdaptiveCard',
           version: adaptiveCardVersion,
 
-          body: Array.isArray(messageBody) ? messageBody : [messageBody],
+          body,
 
-          actions: Array.isArray(actions) ? actions : [actions]
+          actions
         }
       }
     ]

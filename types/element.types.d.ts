@@ -77,5 +77,29 @@ export interface FactSetContainer extends AdaptiveElement {
         value: string;
     }>;
 }
-export type AdaptiveCardContainer = ColumnSetContainer | FactSetContainer;
+export interface ActionSetContainer extends AdaptiveElement {
+    type: 'ActionSet';
+    actions: AdaptiveCardAction[];
+}
+export type AdaptiveCardContainer = ColumnSetContainer | FactSetContainer | ActionSetContainer;
 export type AdaptiveCardElement = ImageElement | TextBlockElement | AdaptiveCardContainer;
+/**
+ * ACTIONS
+ */
+/**
+ * OpenUrl Action
+ * - When invoked, show the given url either by launching it in an external web browser.
+ */
+export interface OpenUrlAction extends Action {
+    type: 'Action.OpenUrl';
+    url: string;
+}
+export interface Action {
+    title: string;
+    iconUrl?: string;
+    id?: string;
+    style?: ActionStyle;
+    tooltip?: string;
+}
+export type ActionStyle = 'default' | 'positive' | 'destructive';
+export type AdaptiveCardAction = OpenUrlAction;

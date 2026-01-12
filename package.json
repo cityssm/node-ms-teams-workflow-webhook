@@ -23,15 +23,14 @@
   "type": "module",
   "exports": {
     ".": "./index.js",
-    "./actions": "./types/action.types.js",
     "./debug": "./debug.config.js",
     "./elements": "./types/element.types.js",
     "./helpers": "./helpers.js",
     "./values": "./types/value.types.js"
   },
   "scripts": {
-    "coverage": "c8 --reporter=lcov --reporter=text --reporter=text-summary node --test",
-    "test": "node --test"
+    "coverage": "c8 --reporter=lcov --reporter=text --reporter=text-summary node --test \"./test/test.js\"",
+    "test": "node --test \"./test/test.js\""
   },
   "dependencies": {
     "debug": "^4.4.3"
