@@ -1,11 +1,16 @@
+import Debug from 'debug';
+import { DEBUG_NAMESPACE } from './debug.config.js';
+const debug = Debug(`${DEBUG_NAMESPACE}:index`);
 export default async function sendMessageToTeamsWebhook(webhookUrl, card) {
     const json = {
         type: 'message',
         attachments: [
             {
                 contentType: 'application/vnd.microsoft.card.adaptive',
+                // eslint-disable-next-line unicorn/no-null
                 contentUrl: null,
                 content: {
+                    // eslint-disable-next-line sonarjs/no-clear-text-protocols
                     $schema: 'http://adaptivecards.io/schemas/adaptive-card.json',
                     type: 'AdaptiveCard',
                     version: '1.2',
@@ -22,7 +27,7 @@ export default async function sendMessageToTeamsWebhook(webhookUrl, card) {
             url: card.actions.openUrl.url
         });
     }
-    console.log(JSON.stringify(json, null, 2));
+    debug('Sending message to Teams webhook: %O', json);
     await fetch(webhookUrl, {
         body: JSON.stringify(json),
         headers: {
@@ -34,4 +39,19 @@ export default async function sendMessageToTeamsWebhook(webhookUrl, card) {
             throw new Error(`Failed to send message to Teams webhook: ${response.status} ${response.statusText}`);
         }
     });
+}
+/**
+ * Convert a record to a FactSet container
+ * @param record - Record to convert
+ * @returns FactSet container
+ */
+export function recordToFactSet(record) {
+    const factSet = {
+        type: 'FactSet',
+        facts: []
+    };
+    for (const [key, value] of Object.entries(record)) {
+        factSet.facts.push({ title: key, value: String(value) });
+    }
+    return factSet;
 }

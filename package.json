@@ -2,9 +2,11 @@
   "name": "@cityssm/ms-teams-workflow-webhook",
   "type": "module",
   "version": "0.1.0",
-  "description": "Sends a formatted message to a Microsoft Teams team workflow webhook",
+  "description": "Sends a formatted message (i.e. Adaptive Card) to a Microsoft Teams workflow webhook",
   "exports": {
-    ".": "./index.js"
+    ".": "./index.js",
+    "./elements": "./types/element.types.js",
+    "./values": "./types/value.types.js"
   },
   "scripts": {
     "coverage": "c8 --reporter=lcov --reporter=text --reporter=text-summary node --test",
@@ -17,7 +19,10 @@
   "keywords": [
     "ms-teams",
     "microsoft-teams",
-    "webhook"
+    "webhook",
+    "power-automate",
+    "adaptive-cards",
+    "workflow"
   ],
   "author": "The Corporation of the City of Sault Ste. Marie",
   "license": "MIT",
@@ -31,7 +36,6 @@
     "prettier-config-cityssm": "^1.0.0"
   },
   "dependencies": {
-    "adaptivecards": "^3.0.5",
     "debug": "^4.4.3"
   }
 }
