@@ -3,8 +3,8 @@
 **This is not meant to be a complete guide to creating and managing Teams workflows.**
 
 To send a message to a channel in Teams, you need to generate a webhook URL.
-You're ability to do so may be limited by your permissions in the corresponding
-team and channel.
+Your ability to do so may be limited by your Office 365 licence,
+and by your permissions in the corresponding team and channel.
 
 ![Open Workflows](./teams-options-workflows.png)
 
@@ -24,7 +24,7 @@ When the webhook is created, the required webhook URL is shown.
 **The webhook may not be ready at this point though, depending on permissions in the team.**
 
 The trigger permission for the workflow may be restricted.
-At this time, the trigger permissions must be unrestricted.
+At this time, this package requires the trigger permissions to be unrestricted.
 
 Also by default, the webhook will attempt to post messages as "Flow bot".
 If the bot does not have permissions to post within the team,

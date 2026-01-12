@@ -31,11 +31,13 @@ await describe('ms-teams-workflow-webhook', async () => {
       webhookURL,
       {
         type: 'TextBlock',
+        
         text: 'Send with the @cityssm/ms-teams-workflow-webhook-package',
         weight: 'bolder'
       },
       {
         type: 'Action.OpenUrl',
+
         title: 'Visit on GitHub',
         url: 'https://github.com/cityssm/node-ms-teams-workflow-webhook'
       }
