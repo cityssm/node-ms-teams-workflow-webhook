@@ -23,6 +23,7 @@
   "type": "module",
   "exports": {
     ".": "./index.js",
+    "./actions": "./types/action.types.js",
     "./debug": "./debug.config.js",
     "./elements": "./types/element.types.js",
     "./helpers": "./helpers.js",

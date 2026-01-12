@@ -12,8 +12,9 @@ Debug.enable(DEBUG_ENABLE_NAMESPACES)
 
 await describe('ms-teams-workflow-webhook', async () => {
   await it('Should post a message to the Teams webhook', async () => {
-    await sendMessageToTeamsWebhook(webhookURL, {
-      cardElements: [
+    await sendMessageToTeamsWebhook(
+      webhookURL,
+      [
         {
           type: 'TextBlock',
 
@@ -30,47 +31,47 @@ await describe('ms-teams-workflow-webhook', async () => {
         })
       ],
 
-      actions: {
-        openUrl: {
+      [
+        {
+          type: 'Action.OpenUrl',
+          
           title: 'Visit on GitHub',
           url: 'https://github.com/cityssm/node-ms-teams-workflow-webhook'
         }
-      }
-    })
+      ]
+    )
   })
 
   await it('Should post a message with columns to the Teams webhook', async () => {
-    await sendMessageToTeamsWebhook(webhookURL, {
-      cardElements: [
-        {
-          type: 'ColumnSet',
+    await sendMessageToTeamsWebhook(webhookURL, [
+      {
+        type: 'ColumnSet',
 
-          columns: [
-            {
-              type: 'Column',
+        columns: [
+          {
+            type: 'Column',
 
-              items: [
-                {
-                  type: 'TextBlock',
+            items: [
+              {
+                type: 'TextBlock',
 
-                  text: 'Column 1'
-                }
-              ]
-            },
-            {
-              type: 'Column',
+                text: 'Column 1'
+              }
+            ]
+          },
+          {
+            type: 'Column',
 
-              items: [
-                {
-                  type: 'TextBlock',
+            items: [
+              {
+                type: 'TextBlock',
 
-                  text: 'Column 2'
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    })
+                text: 'Column 2'
+              }
+            ]
+          }
+        ]
+      }
+    ])
   })
 })
