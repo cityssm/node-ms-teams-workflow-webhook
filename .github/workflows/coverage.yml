@@ -13,7 +13,7 @@ jobs:
         node: [22]
     env:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WORKFLOW_WEBHOOK_URL }}
+      TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
 
     name: Ubuntu - Node ${{ matrix.node }}
     steps:
