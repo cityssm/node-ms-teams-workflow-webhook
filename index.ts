@@ -8,6 +8,8 @@ import type {
 
 const debug = Debug(`${DEBUG_NAMESPACE}:index`)
 
+const adaptiveCardVersion = '1.2'
+
 export default async function sendMessageToTeamsWebhook(
   webhookUrl: string,
   card: {
@@ -32,7 +34,7 @@ export default async function sendMessageToTeamsWebhook(
           // eslint-disable-next-line sonarjs/no-clear-text-protocols
           $schema: 'http://adaptivecards.io/schemas/adaptive-card.json',
           type: 'AdaptiveCard',
-          version: '1.2',
+          version: adaptiveCardVersion,
 
           body: card.cardElements,
 

@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/cityssm/node-ms-teams-workflow-webhook#readme",
   "devDependencies": {
-    "@types/node": "^25.0.3",
+    "@types/node": "^25.0.6",
     "eslint-config-cityssm": "^36.1.0",
     "prettier-config-cityssm": "^1.0.0"
   },

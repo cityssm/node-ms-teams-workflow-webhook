@@ -1,6 +1,7 @@
 # MS Teams Workflow Webhook for Node
 
 [![DeepSource](https://app.deepsource.com/gh/cityssm/node-ms-teams-workflow-webhook.svg/?label=active+issues&show_trend=true&token=atKnIeSPEh7FcDMzbQ5HiJXg)](https://app.deepsource.com/gh/cityssm/node-ms-teams-workflow-webhook/)
+[![codecov](https://codecov.io/gh/cityssm/node-ms-teams-workflow-webhook/graph/badge.svg?token=SIY50A4ZYB)](https://codecov.io/gh/cityssm/node-ms-teams-workflow-webhook)
 
 Sends a formatted message (i.e. [Adaptive Card](https://adaptivecards.io/))
 to a Microsoft Teams workflow webhook.
@@ -15,8 +16,7 @@ npm install @cityssm/ms-teams-workflow-webhook
 
 ![Webhook URL](./docs/teams-workflow-added.png)
 
-To send a message to a channel in Teams,
-you need to create a webhook URL.
+To send a message to a channel in Teams, you need to create a webhook URL.
 
 [**The basics of creating a webhook URL are described**](./docs/README.md).
 More advanced scenarios can be set up with the help of your Teams administrator.
@@ -24,8 +24,7 @@ More advanced scenarios can be set up with the help of your Teams administrator.
 Note that not all
 [Adaptive Card elements](https://adaptivecards.io/explorer/AdaptiveCard.html)
 have Typescript types recognized in this package (yet)
-as they are added on an as-need basis,
-however, they may still work.
+as they are added on an as-need basis, however, they may still work.
 
 ```javascript
 import sendMessageToTeamsWebhook from '@cityssm/ms-teams-workflow-webhook'

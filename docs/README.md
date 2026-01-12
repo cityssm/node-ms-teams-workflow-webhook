@@ -1,4 +1,4 @@
-## Setting Up a Webhook in Microsoft Teams
+# Setting Up a Webhook in Microsoft Teams
 
 **This is not meant to be a complete guide to creating and managing Teams workflows.**
 
